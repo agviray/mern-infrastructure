@@ -16,6 +16,11 @@ class SignUpForm extends Component {
     });
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    alert(JSON.stringify(this.state));
+  };
+
   render() {
     const disable = this.state.password !== this.state.confirm;
 
