@@ -9,8 +9,16 @@ class SignUpForm extends Component {
     error: '',
   };
 
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+      error: '',
+    });
+  };
+
   render() {
     const disable = this.state.password !== this.state.confirm;
+
     return (
       <div>
         <div className="form-container">
