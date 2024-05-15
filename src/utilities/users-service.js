@@ -1,5 +1,14 @@
 import * as usersAPI from './users-api';
 
+export async function login(user) {
+  const token = await usersAPI.login(user);
+  localStorage.setItem('token', token);
+  return getUser();
+}
+
+export function logOut() {
+  localStorage.removeItem('token');
+}
 export async function signUp(userData) {
   const token = await usersAPI.signUp(userData);
   localStorage.setItem('token', token);
@@ -29,12 +38,4 @@ export function getUser() {
   const token = getToken();
   // Return user in the token payuload if token exists, otherwise return null.
   return token ? JSON.parse(atob(token.split('.')[1])).user : null;
-}
-
-export function login() {
-  return;
-}
-
-export function logOut() {
-  localStorage.removeItem('token');
 }
