@@ -15,13 +15,6 @@ async function create(req, res) {
   } catch (err) {
     res.status(400).json(err);
   }
-
-  res.json({
-    user: {
-      name: req.body.name,
-      email: req.body.email,
-    },
-  });
 }
 
 async function login(req, res) {
