@@ -1,5 +1,9 @@
 import * as usersAPI from './users-api';
 
+export function checkToken() {
+  alert('clicked');
+}
+
 export async function login(user) {
   const token = await usersAPI.login(user);
   localStorage.setItem('token', token);
