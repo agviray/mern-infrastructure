@@ -9,7 +9,7 @@ module.exports = function (req, res, next) {
     return next();
   }
   // Remove 'Bearer' string that was included in token header.
-  token = token.replace('Bearer', '');
+  token = token.replace('Bearer ', '');
   // Check if token is valid (not expired)
   jwt.verify(token, process.env.SECRET, function (err, decoded) {
     // If err exists, token invalid
