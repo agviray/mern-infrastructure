@@ -1,7 +1,8 @@
 import * as usersAPI from './users-api';
 
-export function checkToken() {
-  alert('clicked');
+export async function checkToken() {
+  const dateStr = await usersAPI.checkToken();
+  return new Date(dateStr);
 }
 
 export async function login(user) {
